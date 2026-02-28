@@ -1,20 +1,14 @@
 {
   "FolderOrderSettings":[
+    {"name":"Tile_Sets","order":4,"path":"folders/Tile_Sets.yy",},
     {"name":"Objects","order":2,"path":"folders/Objects.yy",},
     {"name":"Sprite","order":1,"path":"folders/Sprite.yy",},
-    {"name":"Tile_Sets","order":4,"path":"folders/Tile_Sets.yy",},
   ],
   "ResourceOrderSettings":[
-    {"name":"oCoin","order":4,"path":"objects/oCoin/oCoin.yy",},
     {"name":"oLighting","order":1,"path":"objects/oLighting/oLighting.yy",},
     {"name":"oPlayer","order":2,"path":"objects/oPlayer/oPlayer.yy",},
     {"name":"oWall","order":3,"path":"objects/oWall/oWall.yy",},
-    {"name":"sCoin","order":2,"path":"sprites/sCoin/sCoin.yy",},
-    {"name":"sHeart","order":3,"path":"sprites/sHeart/sHeart.yy",},
-    {"name":"sKey","order":5,"path":"sprites/sKey/sKey.yy",},
-    {"name":"sMine","order":4,"path":"sprites/sMine/sMine.yy",},
     {"name":"Sprite3","order":3,"path":"sprites/Sprite3/Sprite3.yy",},
-    {"name":"sSlider","order":6,"path":"sprites/sSlider/sSlider.yy",},
     {"name":"sWall","order":1,"path":"sprites/sWall/sWall.yy",},
   ],
 }
