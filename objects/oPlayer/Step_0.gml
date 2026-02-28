@@ -8,20 +8,16 @@ var _back    = keyboard_check(ord("S")) || keyboard_check(vk_down);
 image_angle += (_left - _right) * rotate_speed;
 direction = image_angle;
 
-// 3. DIRECT SPEED CONTROL (The Fix)
+// 3. DIRECT SPEED CONTROL
 var _target_speed = 0;
-
 if (_forward) {
     _target_speed = max_speed_fwd;
 } else if (_back) {
-    _target_speed = -max_speed_rev; // Negative means backward
+    _target_speed = -max_speed_rev;
 }
-
-// Smoothly move current speed toward our target speed
-// This stops the "bouncing" because the target becomes 0 when you let go
 speed = lerp(speed, _target_speed, accel);
 
-// 4. COLLISION, RESET, AND SHAKE
+// 4. COLLISION & HEALTH LOSS
 var _tile_map = layer_tilemap_get_id("ts_layer");
 
 if (tilemap_get_at_pixel(_tile_map, bbox_left + hspeed, y + vspeed) || 
@@ -29,17 +25,24 @@ if (tilemap_get_at_pixel(_tile_map, bbox_left + hspeed, y + vspeed) ||
     tilemap_get_at_pixel(_tile_map, x, bbox_top + vspeed) ||
     tilemap_get_at_pixel(_tile_map, x, bbox_bottom + vspeed)) 
 {
-    // RESET POSITION
-    x = start_x;
-    y = start_y;
-    speed = 0;
-    image_angle = 0;
+    // Subtract 1 heart
+    hp -= 1;
 
-    // SCREEN SHAKE JOLT
-    view_xport[0] = random_range(-8, 8);
-    view_yport[0] = random_range(-8, 8);
+    if (hp <= 0) {
+        room_restart(); // Game Over
+    } else {
+        // Teleport back to start
+        x = start_x;
+        y = start_y;
+        speed = 0;
+        image_angle = 0;
+        
+        // Jolt the screen
+        view_xport[0] = random_range(-10, 10);
+        view_yport[0] = random_range(-10, 10);
+    }
 } else {
-    // Return camera to center
+    // Smoothly settle the camera back to center
     view_xport[0] = lerp(view_xport[0], 0, 0.1);
     view_yport[0] = lerp(view_yport[0], 0, 0.1);
 }
