@@ -10,9 +10,9 @@
   },
   "defaultScriptType":0,
   "Folders":[
-    {"$GMFolder":"","%Name":"Tile_Sets","folderPath":"folders/Tile_Sets.yy","name":"Tile_Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Objects","folderPath":"folders/Objects.yy","name":"Objects","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Sprite","folderPath":"folders/Sprite.yy","name":"Sprite","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"Tile_Sets","folderPath":"folders/Tile_Sets.yy","name":"Tile_Sets","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
   "ForcedPrefabProjectReferences":[],
   "IncludedFiles":[],
@@ -27,6 +27,7 @@
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"sCoin","path":"sprites/sCoin/sCoin.yy",},},
     {"id":{"name":"sPlayer","path":"sprites/sPlayer/sPlayer.yy",},},
     {"id":{"name":"Sprite3","path":"sprites/Sprite3/Sprite3.yy",},},
     {"id":{"name":"sWall","path":"sprites/sWall/sWall.yy",},},
