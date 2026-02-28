@@ -46,3 +46,9 @@ if (tilemap_get_at_pixel(_tile_map, bbox_left + hspeed, y + vspeed) ||
     view_xport[0] = lerp(view_xport[0], 0, 0.1);
     view_yport[0] = lerp(view_yport[0], 0, 0.1);
 }
+
+// Press Space to fire a flare
+if (keyboard_check_pressed(vk_space)) {
+    // Create the flare at the submarine's position
+    instance_create_layer(x, y, "Instances", oFlare);
+}

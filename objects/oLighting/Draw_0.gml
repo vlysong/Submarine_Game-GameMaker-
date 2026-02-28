@@ -1,26 +1,32 @@
-// 1. If the surface doesn't exist (or was cleared from memory), create it
+// 1. Ensure surface exists
 if (!surface_exists(surf)) {
     surf = surface_create(room_width, room_height);
 }
 
-// 2. Set the target to our surface
+// 2. Start drawing to the dark surface
 surface_set_target(surf);
+draw_clear_alpha(c_black, 1.0); // Fill screen with black
 
-// 3. Fill the surface with black (the darkness)
-draw_clear_alpha(c_black, 1.0); 
-
-// 4. Set "Subtract" mode to punch a hole in the blackness
+// 3. Set to "Subtract" mode
 gpu_set_blendmode(bm_subtract);
 
-// 5. Draw a white circle where the player is
-// Change '200' to make the light bigger or smaller
+// 4. Draw the SUBMARINE shape instead of a circle
 with (oPlayer) {
-    draw_circle_color(x, y, 200, c_white, c_black, false);
+    // This draws the player's current sprite/frame/angle to "cut" the hole
+    draw_self(); 
 }
 
-// 6. Reset blend mode and surface target
+// 5. Reset blend mode and target
 gpu_set_blendmode(bm_normal);
 surface_reset_target();
 
-// 7. Finally, draw the surface to the screen
-draw_surface(surf, 0, 0);
+// 6. Draw the final surface to the screen
+// (Adjusted for camera movement)
+var _vx = camera_get_view_x(view_camera[0]);
+var _vy = camera_get_view_y(view_camera[0]);
+draw_surface(surf, _vx, _vy);
+
+// 7. Draw a white "overlay" on the sub so it looks like it's glowing
+with (oPlayer) {
+    draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, c_white, 1);
+}	
