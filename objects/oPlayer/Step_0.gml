@@ -43,11 +43,11 @@ if (_inst != noone) {
     instance_destroy(_inst);
 }
 if (hp<= 0){
-room_goto(2);
+room_goto(3);
 
 	}
 	
 	if (counter>= 12){
-room_goto(1);
+room_goto(2);
 
 	}
