@@ -2,12 +2,12 @@
   "FolderOrderSettings":[
     {"name":"Objects","order":2,"path":"folders/Objects.yy",},
     {"name":"Sprite","order":1,"path":"folders/Sprite.yy",},
-    {"name":"Tile_Sets","order":4,"path":"folders/Tile_Sets.yy",},
+    {"name":"Tile_Sets","order":3,"path":"folders/Tile_Sets.yy",},
   ],
   "ResourceOrderSettings":[
     {"name":"oCoin","order":4,"path":"objects/oCoin/oCoin.yy",},
     {"name":"oFlare","order":4,"path":"objects/oFlare/oFlare.yy",},
-    {"name":"oLighting","order":1,"path":"objects/oLighting/oLighting.yy",},
+    {"name":"oLighting","order":4,"path":"objects/oLighting/oLighting.yy",},
     {"name":"oPlayer","order":2,"path":"objects/oPlayer/oPlayer.yy",},
     {"name":"oWall","order":3,"path":"objects/oWall/oWall.yy",},
     {"name":"sCannon","order":8,"path":"sprites/sCannon/sCannon.yy",},

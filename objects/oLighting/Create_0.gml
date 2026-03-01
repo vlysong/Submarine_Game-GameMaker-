@@ -1,1 +1,1 @@
-surf = -1; // Initialize the surface variable
+surf = -1;

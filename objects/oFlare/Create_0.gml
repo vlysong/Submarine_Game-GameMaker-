@@ -1,4 +1,9 @@
-speed = 6;               // Initial throw speed
-direction = oPlayer.image_angle; 
-friction = 0.05;         // Slowly slides to a stop
-life = 300;              // Lasts for 5 seconds (at 60fps)
+speed = 7;
+direction = oPlayer.image_angle;
+friction = 0.1;
+life = 300; 
+
+// Streak Setup
+trail_size = 15; // Length of the streak
+trail_x = array_create(trail_size, x);
+trail_y = array_create(trail_size, y);

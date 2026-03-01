@@ -1,6 +1,8 @@
-// 1. Draw the Submarine first
+// 1. Draw the Submarine
 draw_self();
 
-// 2. Draw the Cannon (assuming you have a sprite called sCannon)
-// This keeps the cannon attached to the sub's rotation
-draw_sprite_ext(sCannon, 0, x, y, 1, 1, image_angle, c_white, 1);
+// 2. Draw the Cannon attached to the sub
+var _dist = 10;
+var _cx = x + lengthdir_x(_dist, image_angle);
+var _cy = y + lengthdir_y(_dist, image_angle);
+draw_sprite_ext(sCannon, 0, _cx, _cy, 1, 1, image_angle, c_white, 1);
