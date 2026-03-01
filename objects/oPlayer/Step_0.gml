@@ -27,6 +27,7 @@ if (tilemap_get_at_pixel(_tile_map, bbox_left + hspeed, y + vspeed) ||
 {
     // Subtract 1 heart
     hp -= 1;
+	audio_play_sound(collision, 2, false)
 
     if (hp <= 0) {
         room_restart(); // Game Over

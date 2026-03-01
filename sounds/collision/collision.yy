@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"collision",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":1,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":1.8720181,
+  "exportDir":"",
+  "name":"collision",
+  "parent":{
+    "name":"Submarine_Game(GameMaker)",
+    "path":"Submarine_Game(GameMaker).yyp",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"collision.mp3",
+  "volume":0.9,
+}

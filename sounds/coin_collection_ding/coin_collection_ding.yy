@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"coin_collection_ding",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":1,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":1.3583673,
+  "exportDir":"",
+  "name":"coin_collection_ding",
+  "parent":{
+    "name":"Submarine_Game(GameMaker)",
+    "path":"Submarine_Game(GameMaker).yyp",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"coin_collection_ding.mp3",
+  "volume":0.5,
+}
