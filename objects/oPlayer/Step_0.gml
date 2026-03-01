@@ -37,7 +37,7 @@ if (tilemap_get_at_pixel(_tile_map, bbox_left + hsp, y + vsp) ||
     if (audio_exists(collision)) audio_play_sound(collision, 2, false);
 
     if (hp <= 0) {
-        room_goto(2); // Goes to game over room
+        room_goto(3); // Goes to game over room
     } else {
         // Reset position on hit
         x = start_x;
