@@ -19,19 +19,33 @@ vsp = lerp(vsp, 0, fric);
 // 4. TILEMAP COLLISION
 var _map_id = layer_tilemap_get_id(layer_get_id("ts_layer"));
 
-// Horizontal
-if (tilemap_get_at_pixel(_map_id, x + hsp, y)) {
-    while (!tilemap_get_at_pixel(_map_id, x + sign(hsp), y)) { x += sign(hsp); }
-    hsp = 0;
-}
-x += hsp;
+if (tilemap_get_at_pixel(_tile_map, bbox_left + hspeed, y + vspeed) || 
+    tilemap_get_at_pixel(_tile_map, bbox_right + hspeed, y + vspeed) ||
+    tilemap_get_at_pixel(_tile_map, x, bbox_top + vspeed) ||
+    tilemap_get_at_pixel(_tile_map, x, bbox_bottom + vspeed)) 
+{
+    // Subtract 1 heart
+    hp -= 1;
+	audio_play_sound(collision, 2, false)
 
-// Vertical
-if (tilemap_get_at_pixel(_map_id, x, y + vsp)) {
-    while (!tilemap_get_at_pixel(_map_id, x, y + sign(vsp))) { y += sign(vsp); }
-    vsp = 0;
+    if (hp <= 0) {
+		room_goto(2)
+    } else {
+        // Teleport back to start
+        x = start_x;
+        y = start_y;
+        speed = 0;
+        image_angle = 0;
+        
+        // Jolt the screen
+        view_xport[0] = random_range(-10, 10);
+        view_yport[0] = random_range(-10, 10);
+    }
+} else {
+    // Smoothly settle the camera back to center
+    view_xport[0] = lerp(view_xport[0], 0, 0.1);
+    view_yport[0] = lerp(view_yport[0], 0, 0.1);
 }
-y += vsp;
 
 // 5. Fire 7-Flare Burst
 if (_key_fire) {
