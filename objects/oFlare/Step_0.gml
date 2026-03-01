@@ -1,16 +1,22 @@
 life -= 1;
 if (life <= 0) instance_destroy();
 
-var _tile_map = layer_tilemap_get_id("ts_layer");
-
 if (speed > 0) {
-    // Check if we will hit a wall in the next frame
-    if (tilemap_get_at_pixel(_tile_map, x + hspeed, y + vspeed) > 0) {
-        // Move forward 1 pixel at a time for a perfect hit
-        while (!tilemap_get_at_pixel(_tile_map, x + lengthdir_x(1, direction), y + lengthdir_y(1, direction)) > 0) {
+    // Update Streak
+    for (var i = trail_size - 1; i > 0; i--) {
+        trail_x[i] = trail_x[i-1];
+        trail_y[i] = trail_y[i-1];
+    }
+    trail_x[0] = x;
+    trail_y[0] = y;
+
+    // Wall Collision
+    var _map_id = layer_tilemap_get_id(layer_get_id("ts_layer"));
+    if (tilemap_get_at_pixel(_map_id, x + hspeed, y + vspeed)) {
+        while (!tilemap_get_at_pixel(_map_id, x + lengthdir_x(1, direction), y + lengthdir_y(1, direction))) {
             x += lengthdir_x(1, direction);
             y += lengthdir_y(1, direction);
         }
-        speed = 0; // Stick to wall
+        speed = 0;
     }
 }
