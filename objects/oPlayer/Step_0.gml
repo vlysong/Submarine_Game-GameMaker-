@@ -7,7 +7,7 @@ var _key_up    = keyboard_check(vk_up)    || keyboard_check(ord("W"));
 var _key_down  = keyboard_check(vk_down)  || keyboard_check(ord("S"));
 var _key_left  = keyboard_check(vk_left)  || keyboard_check(ord("A"));
 var _key_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
-var _key_fire  = mouse_check_button_pressed(mb_left);
+var _key_fire  = keyboard_check_pressed(vk_space);
 
 // 3. ROTATION
 if (_key_left)  image_angle += rot_spd;

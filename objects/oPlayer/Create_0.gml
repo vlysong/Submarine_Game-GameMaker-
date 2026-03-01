@@ -8,6 +8,6 @@ start_y = y;
 hsp = 0;
 vsp = 0;
 accel = 0.08;   
-fric = 0.01;    
+fric = 0.07;    
 max_spd = 4;
 rot_spd = 2.5;
