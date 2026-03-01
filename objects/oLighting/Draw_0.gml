@@ -1,32 +1,37 @@
-// 1. Ensure surface exists
-if (!surface_exists(surf)) {
-    surf = surface_create(room_width, room_height);
-}
+var _vw = camera_get_view_width(view_camera[0]);
+var _vh = camera_get_view_height(view_camera[0]);
+if (!surface_exists(surf)) surf = surface_create(_vw, _vh);
 
-// 2. Start drawing to the dark surface
-surface_set_target(surf);
-draw_clear_alpha(c_black, 1.0); // Fill screen with black
-
-// 3. Set to "Subtract" mode
-gpu_set_blendmode(bm_subtract);
-
-// 4. Draw the SUBMARINE shape instead of a circle
-with (oPlayer) {
-    // This draws the player's current sprite/frame/angle to "cut" the hole
-    draw_self(); 
-}
-
-// 5. Reset blend mode and target
-gpu_set_blendmode(bm_normal);
-surface_reset_target();
-
-// 6. Draw the final surface to the screen
-// (Adjusted for camera movement)
 var _vx = camera_get_view_x(view_camera[0]);
 var _vy = camera_get_view_y(view_camera[0]);
+
+surface_set_target(surf);
+draw_clear_alpha(c_black, 1.0); // Everything is dark
+
+// 1. PUNCH LIGHT HOLES
+gpu_set_blendmode(bm_subtract);
+
+// Sub Light
+with (oPlayer) draw_sprite_ext(sprite_index, image_index, x - _vx, y - _vy, image_xscale, image_yscale, image_angle, c_white, 1);
+
+// Flare Lights
+with (oFlare) {
+    var _rad = (life / 300) * 120;
+    draw_circle_color(x - _vx, y - _vy, _rad + random(4), c_white, c_black, false);
+}
+
+gpu_set_blendmode(bm_normal);
+
+// 2. BLOCK LIGHT AT THE GREY LINES
+// We draw the tilemap onto the surface. 
+// Since the surface is black, drawing the tiles here will "re-fill" the holes with darkness.
+var _tile_map = layer_tilemap_get_id("ts_layer");
+draw_tilemap(_tile_map, -_vx, -_vy); 
+
+surface_reset_target();
+
+// 3. DRAW TO SCREEN
 draw_surface(surf, _vx, _vy);
 
-// 7. Draw a white "overlay" on the sub so it looks like it's glowing
-with (oPlayer) {
-    draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, c_white, 1);
-}	
+// 4. DRAW GLOWING SUB ON TOP
+with (oPlayer) draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, c_white, 1);

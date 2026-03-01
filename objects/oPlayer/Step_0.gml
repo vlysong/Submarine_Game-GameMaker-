@@ -47,8 +47,11 @@ if (tilemap_get_at_pixel(_tile_map, bbox_left + hspeed, y + vspeed) ||
     view_yport[0] = lerp(view_yport[0], 0, 0.1);
 }
 
-// Press Space to fire a flare
+// 6. SHOOTING FLARES
 if (keyboard_check_pressed(vk_space)) {
-    // Create the flare at the submarine's position
+    // Create the flare at the sub's position
     instance_create_layer(x, y, "Instances", oFlare);
+    
+    // Optional: add a small kickback when firing
+    speed -= 0.5; 
 }

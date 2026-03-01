@@ -1,4 +1,4 @@
-speed = 8;               // How fast the flare flies
-direction = oPlayer.image_angle; // Shoot in the direction the sub is facing
-friction = 0.1;          // The flare will slowly come to a stop
-life = 180;              // How many frames (3 seconds) the flare lasts
+speed = 6;               // Initial throw speed
+direction = oPlayer.image_angle; 
+friction = 0.05;         // Slowly slides to a stop
+life = 300;              // Lasts for 5 seconds (at 60fps)

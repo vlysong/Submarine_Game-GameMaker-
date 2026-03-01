@@ -9,6 +9,7 @@
     {"name":"oLighting","order":5,"path":"objects/oLighting/oLighting.yy",},
     {"name":"oPlayer","order":2,"path":"objects/oPlayer/oPlayer.yy",},
     {"name":"oWall","order":3,"path":"objects/oWall/oWall.yy",},
+    {"name":"sCannon","order":8,"path":"sprites/sCannon/sCannon.yy",},
     {"name":"sCoin","order":2,"path":"sprites/sCoin/sCoin.yy",},
     {"name":"sFlare","order":7,"path":"sprites/sFlare/sFlare.yy",},
     {"name":"sHeart","order":3,"path":"sprites/sHeart/sHeart.yy",},

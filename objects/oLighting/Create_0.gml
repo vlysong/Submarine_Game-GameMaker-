@@ -1,2 +1,1 @@
-// Create a surface the size of the room
-surf = -1;
+surf = -1; // Initialize the surface variable

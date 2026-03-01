@@ -28,6 +28,7 @@
     {"id":{"name":"oPlayer","path":"objects/oPlayer/oPlayer.yy",},},
     {"id":{"name":"oWall","path":"objects/oWall/oWall.yy",},},
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"sCannon","path":"sprites/sCannon/sCannon.yy",},},
     {"id":{"name":"sCoin","path":"sprites/sCoin/sCoin.yy",},},
     {"id":{"name":"sFlare","path":"sprites/sFlare/sFlare.yy",},},
     {"id":{"name":"sHeart","path":"sprites/sHeart/sHeart.yy",},},
