@@ -1,55 +1,65 @@
-// 1. Inputs
-var _key_up    = keyboard_check(vk_up) || keyboard_check(ord("W"));
-var _key_left  = keyboard_check(vk_left) || keyboard_check(ord("A"));
-var _key_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
-var _key_fire  = mouse_check_button_pressed(mb_left); // Firing with Mouse
+// 1. SETUP TILEMAP
+var _lay_id = layer_get_id("ts_layer");
+var _tile_map = layer_tilemap_get_id(_lay_id);
 
-// 2. Rotation
+// 2. INPUTS
+var _key_up    = keyboard_check(vk_up)    || keyboard_check(ord("W"));
+var _key_down  = keyboard_check(vk_down)  || keyboard_check(ord("S"));
+var _key_left  = keyboard_check(vk_left)  || keyboard_check(ord("A"));
+var _key_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
+var _key_fire  = mouse_check_button_pressed(mb_left);
+
+// 3. ROTATION
 if (_key_left)  image_angle += rot_spd;
 if (_key_right) image_angle -= rot_spd;
 
-// 3. Thrust & Friction
+// 4. THRUST & FRICTION
 if (_key_up) {
     hsp += lengthdir_x(accel, image_angle);
     vsp += lengthdir_y(accel, image_angle);
 }
+if (_key_down) {
+    hsp -= lengthdir_x(accel, image_angle);
+    vsp -= lengthdir_y(accel, image_angle);
+}
+
 hsp = lerp(hsp, 0, fric);
 vsp = lerp(vsp, 0, fric);
 
-// 4. TILEMAP COLLISION
-var _map_id = layer_tilemap_get_id(layer_get_id("ts_layer"));
-
-if (tilemap_get_at_pixel(_tile_map, bbox_left + hspeed, y + vspeed) || 
-    tilemap_get_at_pixel(_tile_map, bbox_right + hspeed, y + vspeed) ||
-    tilemap_get_at_pixel(_tile_map, x, bbox_top + vspeed) ||
-    tilemap_get_at_pixel(_tile_map, x, bbox_bottom + vspeed)) 
+// 5. TILEMAP COLLISION
+// Check if the next position overlaps with the ts_layer
+if (tilemap_get_at_pixel(_tile_map, bbox_left + hsp, y + vsp) || 
+    tilemap_get_at_pixel(_tile_map, bbox_right + hsp, y + vsp) ||
+    tilemap_get_at_pixel(_tile_map, x, bbox_top + vsp) ||
+    tilemap_get_at_pixel(_tile_map, x, bbox_bottom + vsp)) 
 {
-    // Subtract 1 heart
     hp -= 1;
-	audio_play_sound(collision, 2, false)
+    if (audio_exists(collision)) audio_play_sound(collision, 2, false);
 
     if (hp <= 0) {
-		room_goto(2)
+        room_goto(2); // Goes to game over room
     } else {
-        // Teleport back to start
+        // Reset position on hit
         x = start_x;
         y = start_y;
-        speed = 0;
-        image_angle = 0;
-        
-        // Jolt the screen
+        hsp = 0;
+        vsp = 0;
+        // Visual screen jolt
         view_xport[0] = random_range(-10, 10);
         view_yport[0] = random_range(-10, 10);
     }
 } else {
-    // Smoothly settle the camera back to center
+    // Actually move if no collision
+    x += hsp;
+    y += vsp;
+    // Smoothly reset screen jolt
     view_xport[0] = lerp(view_xport[0], 0, 0.1);
     view_yport[0] = lerp(view_yport[0], 0, 0.1);
 }
 
-// 5. Fire 7-Flare Burst
+// 6. FIRING (7-Flare Burst)
 if (_key_fire) {
-    var _muzzle_dist = 10 * image_xscale; 
+    var _muzzle_dist = 12 * image_xscale; 
     var _bx = x + lengthdir_x(_muzzle_dist, image_angle);
     var _by = y + lengthdir_y(_muzzle_dist, image_angle);
     
