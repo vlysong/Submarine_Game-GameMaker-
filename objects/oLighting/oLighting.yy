@@ -10,8 +10,8 @@
   "name":"oLighting",
   "overriddenProperties":[],
   "parent":{
-    "name":"Submarine_Game(GameMaker)",
-    "path":"Submarine_Game(GameMaker).yyp",
+    "name":"Objects",
+    "path":"folders/Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,

@@ -8,6 +8,9 @@ rotate_speed = 3.5;
 hp_max = 3;
 hp = hp_max;
 
+// --- COIN COLLECTION ---
+counter = 0;
+
 // --- STARTING POSITION ---
 // Ensure these coordinates are in open water in your Room Editor!
 start_x = 100;
