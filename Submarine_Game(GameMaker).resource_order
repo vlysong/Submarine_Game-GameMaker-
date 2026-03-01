@@ -5,6 +5,7 @@
     {"name":"Tile_Sets","order":4,"path":"folders/Tile_Sets.yy",},
   ],
   "ResourceOrderSettings":[
+    {"name":"oCoin","order":4,"path":"objects/oCoin/oCoin.yy",},
     {"name":"oFlare","order":4,"path":"objects/oFlare/oFlare.yy",},
     {"name":"oLighting","order":1,"path":"objects/oLighting/oLighting.yy",},
     {"name":"oPlayer","order":2,"path":"objects/oPlayer/oPlayer.yy",},
