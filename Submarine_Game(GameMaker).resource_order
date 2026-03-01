@@ -5,13 +5,9 @@
     {"name":"Tile_Sets","order":4,"path":"folders/Tile_Sets.yy",},
   ],
   "ResourceOrderSettings":[
-<<<<<<< HEAD
     {"name":"oFlare","order":4,"path":"objects/oFlare/oFlare.yy",},
-    {"name":"oLighting","order":5,"path":"objects/oLighting/oLighting.yy",},
-=======
     {"name":"oCoin","order":4,"path":"objects/oCoin/oCoin.yy",},
     {"name":"oLighting","order":1,"path":"objects/oLighting/oLighting.yy",},
->>>>>>> baaa4ea341662210125c7d5bb9ade2968e882761
     {"name":"oPlayer","order":2,"path":"objects/oPlayer/oPlayer.yy",},
     {"name":"oWall","order":3,"path":"objects/oWall/oWall.yy",},
     {"name":"sCannon","order":8,"path":"sprites/sCannon/sCannon.yy",},
