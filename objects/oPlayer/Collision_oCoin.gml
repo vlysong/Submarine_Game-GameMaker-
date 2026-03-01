@@ -1,3 +1,1 @@
-counter = 0 
-if (!place_meeting()
-// hi 
+counter += 1;
