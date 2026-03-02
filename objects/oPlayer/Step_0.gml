@@ -39,6 +39,7 @@ if (tilemap_get_at_pixel(_map_id, _hx, y)) {
     x += sign(hsp) * 4; // Kick out to prevent sticking
     hp -= 0.5;
     shake_power = 8;
+	audio_play_sound(collision, 2, false)
 }
 x += hsp;
 
@@ -49,6 +50,7 @@ if (tilemap_get_at_pixel(_map_id, x, _vy)) {
     y += sign(vsp) * 4; // Kick out
     hp -= 0.5;
     shake_power = 8;
+	audio_play_sound(collision, 2, false)
 }
 y += vsp;
 
