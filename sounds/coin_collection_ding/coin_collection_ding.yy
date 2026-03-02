@@ -22,5 +22,5 @@
   "resourceVersion":"2.0",
   "sampleRate":44100,
   "soundFile":"coin_collection_ding.mp3",
-  "volume":0.72,
+  "volume":1.0,
 }
